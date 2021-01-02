@@ -14,14 +14,16 @@ public class Movement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         _rb.velocity = new Vector2(horizontalInput * Time.fixedDeltaTime * speed, _rb.velocity.y);
+        checkFlip();
 
         _anim.SetInteger("Movement", (int)_rb.velocity.x);
         _anim.SetBool("isIdle", false);
 
         if (horizontalInput == 0 & Input.GetButtonDown("Horizontal") == false)
+        {
             _anim.SetBool("isIdle", true);
-
-        checkFlip();
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
+        }
     }
 
     void checkFlip()
