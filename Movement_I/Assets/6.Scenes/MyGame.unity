@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 1462607695}
   - component: {fileID: 1462607694}
   - component: {fileID: 1462607696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,6 +1617,7 @@ GameObject:
   - component: {fileID: 1786616450}
   - component: {fileID: 1786616454}
   - component: {fileID: 1786616455}
+  - component: {fileID: 1786616457}
   - component: {fileID: 1786616456}
   m_Layer: 0
   m_Name: Player
@@ -1718,7 +1719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786616449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.71, y: -2.84, z: 0}
+  m_LocalPosition: {x: 0.29, y: -2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1768,6 +1769,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1786616457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786616449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1615a02a587a8fd4cb60824f9f960f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckDistance: 1.14
+  coyotteTimeRef: 0.4
+  jumpForce: 500
+  bufferCount: 0
 --- !u!1 &1926750241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,7 +1826,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
