@@ -21,7 +21,7 @@ public class Jump : MonoBehaviour
 
     void Jumping(Rigidbody2D _rb, float yValue)
     {
-        _rb.AddForce(new Vector2(_rb.velocity.x, yValue * Time.fixedDeltaTime), ForceMode2D.Impulse);
+        _rb.AddForce(new Vector2(_rb.velocity.x, yValue), ForceMode2D.Impulse);
     }
 
     public void OnJump(Rigidbody2D _rb, Animator _anim)
@@ -30,7 +30,7 @@ public class Jump : MonoBehaviour
 
         if (!isGrounding && coyotteTime > 0 || !isJumping)
         {
-            Jumping(_rb, Convert.ToInt16(jump) * jumpForce);
+            Jumping(_rb, Convert.ToInt16(jump) * Time.fixedDeltaTime * jumpForce);
             bufferCount = 0;
         }
         FlexibleJump(_rb);
@@ -62,7 +62,7 @@ public class Jump : MonoBehaviour
     IEnumerator Buffering(Rigidbody2D _rb)
     {
         _rb.velocity = Vector2.zero;
-        Jumping(_rb, 230);
+        Jumping(_rb, 230 * Time.fixedDeltaTime);
         yield return new WaitUntil(() => _rb.velocity.y <= 0);
         bufferCount = 0;
     }
